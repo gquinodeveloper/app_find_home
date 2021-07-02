@@ -2,9 +2,9 @@
 
 A new Flutter project.
 
-1.- Descargar
-2.- Abrir terminal y ejecutar comando flutter pub get
-3.- Abrir main y ejecutar
+1.- Descargar <br>
+2.- Abrir terminal y ejecutar comando flutter pub get <br>
+3.- Abrir main y ejecutar<br>
 
 ## Getting Started
 

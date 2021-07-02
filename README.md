@@ -2,6 +2,10 @@
 
 A new Flutter project.
 
+1.- Descargar
+2.- Abrir terminal y ejecutar comando flutter pub get
+3.- Abrir main y ejecutar
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.

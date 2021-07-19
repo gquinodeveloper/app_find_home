@@ -1,19 +1,25 @@
+import 'package:app_find_home/app/modules/home/home_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:app_find_home/app/core/theme/app_theme.dart';
 import 'package:app_find_home/app/data/models/house_model.dart';
 import 'package:app_find_home/app/global_widgets/button_favorite.dart';
 import 'package:app_find_home/app/global_widgets/facilite.dart';
+import 'package:get/get.dart';
 
 class Houses extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return SliverPadding(
-      padding: EdgeInsets.only(bottom: kBottomNavigationBarHeight * 1.5),
-      sliver: SliverList(
-        delegate: SliverChildBuilderDelegate(
-          (_, i) => ItemHouse(house: houses[i]),
-          childCount: houses.length,
+    return GetBuilder<HomeController>(
+      builder: (_) => SliverPadding(
+        padding: EdgeInsets.only(bottom: kBottomNavigationBarHeight * 1.5),
+        sliver: Obx(
+          () => SliverList(
+            delegate: SliverChildBuilderDelegate(
+              (context, index) => ItemHouse(house: _.houses[index]),
+              childCount: _.houses.length,
+            ),
+          ),
         ),
       ),
     );
@@ -42,8 +48,14 @@ class ItemHouse extends StatelessWidget {
           child: Stack(
             fit: StackFit.expand,
             children: [
-              Image.asset(house.photos.first, fit: BoxFit.cover),
-              _Location(location: house.user.location),
+              /* Image.asset(
+                  "https://i.pinimg.com/474x/b3/e9/ed/b3e9edc2a8cd4f2da6b91182f59d9795.jpg",
+                  fit: BoxFit.cover), */
+              Image.network(
+                "https://i.pinimg.com/474x/b3/e9/ed/b3e9edc2a8cd4f2da6b91182f59d9795.jpg",
+                fit: BoxFit.cover,
+              ),
+              _Location(location: house.location),
               _DetailHouse(house: house),
             ],
           ),
@@ -135,12 +147,12 @@ class _DetailHouse extends StatelessWidget {
                           children: [
                             CircleAvatar(
                               radius: 14,
-                              backgroundImage: AssetImage(house.user.photo),
+                              backgroundImage: NetworkImage(house.avatar),
                             ),
                             Padding(
                               padding: EdgeInsets.only(left: 10),
                               child: Text(
-                                house.user.name,
+                                house.user,
                                 style: Theme.of(context)
                                     .textTheme
                                     .subtitle2
@@ -164,7 +176,7 @@ class _DetailHouse extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         RatingAndReviews(
-                          rating: house.user.rating,
+                          rating: house.rating,
                           reviews: house.reviews,
                         ),
                         Facilities(house: house),

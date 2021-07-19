@@ -1,6 +1,80 @@
 import 'package:meta/meta.dart' show required;
 
 class HouseModel {
+  int idHouse;
+  String name;
+  int idPhoto;
+  String user;
+  String avatar;
+  int rating;
+  String location;
+  int price;
+  int reviews;
+  int bedroom;
+  int menu;
+  int bathroom;
+  String description;
+  String utilities;
+  int aviable;
+
+  HouseModel({
+    this.idHouse,
+    this.name,
+    this.idPhoto,
+    this.user,
+    this.avatar,
+    this.rating,
+    this.location,
+    this.price,
+    this.reviews,
+    this.bedroom,
+    this.menu,
+    this.bathroom,
+    this.description,
+    this.utilities,
+    this.aviable,
+  });
+
+  factory HouseModel.fromJson(Map<String, dynamic> json) => HouseModel(
+        idHouse: json["idHouse"],
+        name: json["name"],
+        idPhoto: json["idPhoto"],
+        user: json["user"],
+        avatar: json["avatar"],
+        rating: json["rating"],
+        location: json["location"],
+        price: json["price"],
+        reviews: json["reviews"],
+        bedroom: json["bedroom"],
+        menu: json["menu"],
+        bathroom: json["bathroom"],
+        description: json["description"],
+        utilities: json["utilities"],
+        aviable: json["aviable"],
+      );
+
+  Map<String, dynamic> toJson() => {
+        "idHouse": idHouse,
+        "name": name,
+        "idPhoto": idPhoto,
+        "user": user,
+        "avatar": avatar,
+        "rating": rating,
+        "location": location,
+        "price": price,
+        "reviews": reviews,
+        "bedroom": bedroom,
+        "menu": menu,
+        "bathroom": bathroom,
+        "description": description,
+        "utilities": utilities,
+        "aviable": aviable,
+      };
+}
+
+
+
+/* class HouseModel {
   final String name;
   final List<String> photos;
   final User user;
@@ -138,3 +212,4 @@ final houses = [
     aviable: false,
   ),
 ];
+ */

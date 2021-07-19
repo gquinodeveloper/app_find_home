@@ -22,9 +22,12 @@ class SplashController extends GetxController {
 
   _loadLogin() async {
     await Future.delayed(
-      Duration(seconds: 2),
-      //() => Get.offNamed(AppRoutes.LOGIN),
-      () => Get.offNamed(AppRoutes.HOME),
+      Duration(milliseconds: 800),
+      //Duration(seconds: 2),
+      () => Get.offNamed(AppRoutes.LOGIN),
+      //() => Get.offNamed(AppRoutes.SIGNUP),
+      //() => Get.offNamed(AppRoutes.HOME),
+      //() => Get.offNamed(AppRoutes.DETAIL),
     );
   }
 }

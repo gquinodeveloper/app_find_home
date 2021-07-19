@@ -2,7 +2,12 @@ import 'package:app_find_home/app/core/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
 class PrimaryButton extends StatelessWidget {
-  PrimaryButton({this.texto});
+  PrimaryButton({
+    this.texto,
+    this.onPressed,
+  });
+
+  final void Function() onPressed;
   final String texto;
   @override
   Widget build(BuildContext context) {
@@ -15,7 +20,8 @@ class PrimaryButton extends StatelessWidget {
       child: MaterialButton(
         minWidth: double.infinity,
         height: 60.0,
-        onPressed: () {},
+        //onPressed: () {},
+        onPressed: onPressed,
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
           child: Text(

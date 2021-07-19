@@ -37,7 +37,7 @@ class SplashPage extends StatelessWidget {
               Container(
                 width: Responsive.getScreenSize(context).height * .05,
                 child: LinearProgressIndicator(
-                  backgroundColor: AppTheme.cyan,
+                  backgroundColor: AppTheme.blueDark,
                 ),
               ),
             ],

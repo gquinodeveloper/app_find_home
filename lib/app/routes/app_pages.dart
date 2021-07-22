@@ -1,3 +1,4 @@
+import 'package:app_find_home/app/data/models/house_model.dart';
 import 'package:app_find_home/app/modules/detail/detail_binding.dart';
 import 'package:app_find_home/app/modules/signup/signup_binding.dart';
 import 'package:app_find_home/app/modules/signup/signup_page.dart';
@@ -43,8 +44,10 @@ class AppPages {
     ),
     GetPage(
       name: AppRoutes.DETAIL,
-      page: () => DetailPage(),
+      page: () => DetailPage(house: HouseModel()),
       binding: DetailBinding(),
+      transition: Transition.fade,
+      transitionDuration: Duration(milliseconds: 500),
     ),
   ];
 }

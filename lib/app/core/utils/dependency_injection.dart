@@ -1,10 +1,12 @@
 import 'package:app_find_home/app/data/providers/authentication_provider.dart';
 import 'package:app_find_home/app/data/providers/house_provider.dart';
 import 'package:app_find_home/app/data/providers/local/auth_storage.dart';
+import 'package:app_find_home/app/data/providers/reservation_provider.dart';
 import 'package:app_find_home/app/data/providers/user_provider.dart';
 import 'package:app_find_home/app/data/repositories/authentication_repository.dart';
 import 'package:app_find_home/app/data/repositories/house_repository.dart';
 import 'package:app_find_home/app/data/repositories/local/auth_storage_repository.dart';
+import 'package:app_find_home/app/data/repositories/reservation_repository.dart';
 import 'package:app_find_home/app/data/repositories/user_repository.dart';
 import 'package:get/get.dart';
 
@@ -14,6 +16,7 @@ class DependencyInjection {
     Get.put<UserProvider>(UserProvider());
     Get.put<AuthenticationProvider>(AuthenticationProvider());
     Get.put<HouseProvider>(HouseProvider());
+    Get.put<ReservationProvider>(ReservationProvider());
 
     //Local
     Get.put<AuthStorage>(AuthStorage());
@@ -22,6 +25,7 @@ class DependencyInjection {
     Get.put<UserRepository>(UserRepository());
     Get.put<AuthenticationRepository>(AuthenticationRepository());
     Get.put<HouseRepository>(HouseRepository());
+    Get.put<ReservationRepository>(ReservationRepository());
 
     //Local
     Get.put<AuthStorageRepository>(AuthStorageRepository());

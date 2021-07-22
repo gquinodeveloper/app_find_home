@@ -19,9 +19,6 @@ class HouseProvider {
         "page": page,
       }, */
     );
-
-    print(response.data["result"]);
-
     return (response.data["result"] as List)
         .map((item) => HouseModel.fromJson(item))
         .toList();

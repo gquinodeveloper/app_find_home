@@ -80,7 +80,6 @@ class FormSignUp extends StatelessWidget {
           ),
           SizedBox(height: Responsive.getScreenSize(context).height * .02),
           InputText(
-            initialValue: "Hola",
             iconPrefix: Icons.email_outlined,
             iconColor: AppTheme.light,
             border: InputBorder.none,

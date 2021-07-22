@@ -1,4 +1,5 @@
 import 'package:app_find_home/app/modules/home/home_controller.dart';
+import 'package:app_find_home/app/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:app_find_home/app/core/theme/app_theme.dart';
@@ -6,6 +7,10 @@ import 'package:app_find_home/app/data/models/house_model.dart';
 import 'package:app_find_home/app/global_widgets/button_favorite.dart';
 import 'package:app_find_home/app/global_widgets/facilite.dart';
 import 'package:get/get.dart';
+
+//"https://i.pinimg.com/236x/76/48/92/764892a84ae8e6342559c7106d257f69.jpg,
+//https://i.pinimg.com/236x/7a/a6/f6/7aa6f6d4966f2b61e57d64bdbca59298.jpg,
+//https://i.pinimg.com/236x/3a/60/60/3a6060012698f64272c5e3ecb4baf461.jpg"
 
 class Houses extends StatelessWidget {
   @override
@@ -35,29 +40,33 @@ class ItemHouse extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(
-        top: 20,
-        left: 20.0,
-        right: 20.0,
-      ),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(20.0),
-        child: AspectRatio(
-          aspectRatio: .90,
-          child: Stack(
-            fit: StackFit.expand,
-            children: [
-              /* Image.asset(
-                  "https://i.pinimg.com/474x/b3/e9/ed/b3e9edc2a8cd4f2da6b91182f59d9795.jpg",
-                  fit: BoxFit.cover), */
-              Image.network(
-                "https://i.pinimg.com/474x/b3/e9/ed/b3e9edc2a8cd4f2da6b91182f59d9795.jpg",
-                fit: BoxFit.cover,
+    final arrPhotos = house.photo.split(',');
+    return GestureDetector(
+      onTap: () => Get.toNamed(AppRoutes.DETAIL, arguments: house),
+      child: Padding(
+        padding: EdgeInsets.only(
+          top: 20,
+          left: 20.0,
+          right: 20.0,
+        ),
+        child: Hero(
+          tag: "key_${house.photo}",
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(20.0),
+            child: AspectRatio(
+              aspectRatio: .90,
+              child: Stack(
+                fit: StackFit.expand,
+                children: [
+                  Image.network(
+                    arrPhotos[0],
+                    fit: BoxFit.fill,
+                  ),
+                  _Location(location: house.location),
+                  _DetailHouse(house: house),
+                ],
               ),
-              _Location(location: house.location),
-              _DetailHouse(house: house),
-            ],
+            ),
           ),
         ),
       ),

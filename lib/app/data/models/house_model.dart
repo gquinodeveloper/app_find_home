@@ -4,6 +4,7 @@ class HouseModel {
   int idHouse;
   String name;
   int idPhoto;
+  String photo;
   String user;
   String avatar;
   int rating;
@@ -21,6 +22,7 @@ class HouseModel {
     this.idHouse,
     this.name,
     this.idPhoto,
+    this.photo,
     this.user,
     this.avatar,
     this.rating,
@@ -39,6 +41,7 @@ class HouseModel {
         idHouse: json["idHouse"],
         name: json["name"],
         idPhoto: json["idPhoto"],
+        photo: json["Photo"],
         user: json["user"],
         avatar: json["avatar"],
         rating: json["rating"],
@@ -57,6 +60,7 @@ class HouseModel {
         "idHouse": idHouse,
         "name": name,
         "idPhoto": idPhoto,
+        "Photo": photo,
         "user": user,
         "avatar": avatar,
         "rating": rating,
